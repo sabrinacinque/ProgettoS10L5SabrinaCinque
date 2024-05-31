@@ -824,4 +824,16 @@ export class UserService {
       return { ...user, todos: userTodos };
     });
   }
+
+  searchTodosByUserName(todosWithUser: (iTodo & { user?: { firstName: string; lastName: string } })[], query: string): (iUser & { todos?: iTodo[] })[] {
+    const lowerCaseQuery = query.toLowerCase();
+    const usersWithTodos = this.getUsersWithTodos(todosWithUser);
+
+    return usersWithTodos.filter(user => {
+      const fullName = `${user.firstName.toLowerCase()} ${user.lastName.toLowerCase()}`;
+      return user.firstName.toLowerCase().includes(lowerCaseQuery) ||
+             user.lastName.toLowerCase().includes(lowerCaseQuery) ||
+             fullName.includes(lowerCaseQuery);
+    });
+  }
 }

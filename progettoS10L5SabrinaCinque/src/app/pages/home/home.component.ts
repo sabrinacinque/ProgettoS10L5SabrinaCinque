@@ -10,11 +10,24 @@ import { TodoService } from '../../todo.service';
 })
 export class HomeComponent implements OnInit {
   todosConNomeUser: (iTodo & { user?: { firstName: string; lastName: string } })[] = [];
+  filteredTodos: (iTodo & { user?: { firstName: string; lastName: string } })[] = [];
+  searchQuery: string = '';
 
-  constructor(private userService: UserService, private todoService: TodoService) { }
+  constructor(private svcUser: UserService, private svcTodo: TodoService) { }
 
   ngOnInit() {
-    const users = this.userService.getUsers();
-    this.todosConNomeUser = this.todoService.getTodosWithUser(users);
+    const users = this.svcUser.getUsers();
+    this.todosConNomeUser = this.svcTodo.getTodosWithUser(users);
+    this.filteredTodos = this.todosConNomeUser;
+  }
+
+  onSearch() {
+    const query = this.searchQuery.toLowerCase();
+    if (query) {
+      const filteredUsers = this.svcUser.searchTodosByUserName(this.todosConNomeUser, query);
+      this.filteredTodos = filteredUsers.flatMap(user => user.todos ?? []);
+    } else {
+      this.filteredTodos = this.todosConNomeUser;
+    }
   }
 }

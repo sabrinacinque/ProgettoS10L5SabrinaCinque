@@ -1,5 +1,4 @@
 <div class="container">
-
   <div class="row my-5">
     <div class="col d-flex flex-row justify-content-center align-items-center">
       <img src="../../../assets/img/avatar2.png" alt="immagine death note" />
@@ -7,10 +6,17 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row my-5">
+    <div class="col-6 d-flex justify-content-center mx-auto my-5">
+      <input type="text" class="form-control w-50" placeholder="Cerca per peccatore..." [(ngModel)]="searchQuery" />
+      <button class="btn btn-danger ml-2 fs-3" (click)="onSearch()">Cerca</button>
+    </div>
+  </div>
+
+  <div class="row mb-5">
     <div class="col-md-12">
       <ul class="list-unstyled">
-        <li class="mb-2 fs-3"  *ngFor="let todo of todosConNomeUser" [ngClass]="[todo.completed ? 'bg-success' : 'bg-danger']">
+        <li class="mb-2 fs-3" *ngFor="let todo of filteredTodos" [ngClass]="[todo.completed ? 'bg-success' : 'bg-danger']">
           <app-single-task [todo]="todo"></app-single-task>
         </li>
       </ul>
