@@ -9,6 +9,7 @@ import { TodoService } from '../../todo.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  //i punti interr sono stati inseriti perchè noi inizialmente non abbiamo questi valori nei vari array, arrivano "dopo"...quando incrociamo i dati
   todosConNomeUser: (iTodo & { user?: { firstName: string; lastName: string } })[] = [];
   filteredTodos: (iTodo & { user?: { firstName: string; lastName: string } })[] = [];
   searchQuery: string = '';
@@ -21,7 +22,7 @@ export class HomeComponent implements OnInit {
     this.filteredTodos = this.todosConNomeUser;
   }
 
-  onSearch() {
+  onSearch() {//funzione di ricerca nell'input 
     const query = this.searchQuery.toLowerCase();
     if (query) {
       const filteredUsers = this.svcUser.searchTodosByUserName(this.todosConNomeUser, query);
