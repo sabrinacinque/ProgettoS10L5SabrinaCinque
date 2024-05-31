@@ -1,8 +1,9 @@
-img
-{
-  width:200px;
-  height:170px;
-  &hover {
-    transform:scale(2.1);
+img {
+  width: 200px;
+  height: 170px;
+  transition: transform 0.3s ease; // Aggiunge una transizione per l'animazione
+
+  &:hover {
+    transform: scale(1.2);
   }
 }
