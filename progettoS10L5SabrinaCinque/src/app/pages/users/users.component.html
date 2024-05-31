@@ -1,1 +1,18 @@
-<p>users works!</p>
+<div class="container">
+  <h1 class="text-center">Chi è stato il più performante questa settimana?<br>Scorpiamolo!</h1>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col" *ngFor="let user of usersWithTodos">
+      <div class="card text-center">
+        <img [src]="user.image" class="card-img-top" alt="immagine avatar dell'user">
+        <div class="card-body">
+          <h2 class="card-title">{{ user.firstName }} {{ user.lastName }}</h2>
+          <ul class="list-unstyled">
+            <li *ngFor="let todo of user.todos" [ngClass]="[todo.completed ? 'bg-success' : 'bg-danger']">
+              <app-single-task [todo]="todo"></app-single-task>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
