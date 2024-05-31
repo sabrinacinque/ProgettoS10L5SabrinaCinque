@@ -1,1 +1,12 @@
-<p>completed works!</p>
+<div class="container">
+  <h1 class="text-center">Todo Completati con Nome User</h1>
+  <div class="row">
+    <div class="col-md-12">
+      <ul class="list-unstyled">
+        <li *ngFor="let todo of completedTodosConNomeUser" [ngClass]="[todo.completed ? 'bg-success' : 'bg-danger']">
+          <app-single-task [todo]="todo"></app-single-task>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -926,4 +926,17 @@ export class TodoService {
       };
     });
   }
+
+  getCompletedTodosWithUser(users: iUser[]): (iTodo & { user?: { firstName: string; lastName: string } })[] {
+    const todosWithUser = this.getTodosWithUser(users);
+    return todosWithUser.filter(todo => todo.completed);
+  }
+
+
+  updateTodoStatus(id: number, completed: boolean) {
+    const todo = this.todos.find(todo => todo.id === id);
+    if (todo) {
+      todo.completed = completed;
+    }
+  }
 }

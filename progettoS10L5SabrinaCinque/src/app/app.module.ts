@@ -9,6 +9,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { CompletedComponent } from './pages/completed/completed.component';
 import { UsersComponent } from './pages/users/users.component';
 import { FormsModule } from '@angular/forms';
+import { SingleTaskComponent } from './communComponent/single-task/single-task.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
     NavbarComponent,
     HomeComponent,
     CompletedComponent,
-    UsersComponent
+    UsersComponent,
+    SingleTaskComponent
   ],
   imports: [
     BrowserModule,

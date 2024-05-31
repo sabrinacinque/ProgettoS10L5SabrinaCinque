@@ -16,6 +16,5 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     const users = this.userService.getUsers();
     this.todosConNomeUser = this.todoService.getTodosWithUser(users);
-    console.log(this.todosConNomeUser);
   }
 }
