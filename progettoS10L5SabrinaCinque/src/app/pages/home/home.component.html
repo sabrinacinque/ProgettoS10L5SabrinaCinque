@@ -1,0 +1,17 @@
+
+<h1>Todo con Nome User</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <ul class="list-unstyled">
+        <li *ngFor="let todo of todosConNomeUser" [ngClass]=" [todo.completed?'bg-success': 'bg-danger']">
+          <input type="checkbox" [(ngModel)]="todo.completed">
+          <strong>{{ todo.todo }}</strong> by {{ todo.user?.firstName + " " + todo.user?.lastName }}
+          <p>{{todo.completed}}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
