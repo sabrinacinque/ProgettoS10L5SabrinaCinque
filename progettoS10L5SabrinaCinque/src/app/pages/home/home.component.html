@@ -3,14 +3,14 @@
   <div class="row my-5">
     <div class="col d-flex flex-row justify-content-center align-items-center">
       <img src="../../../assets/img/avatar2.png" alt="immagine death note" />
-      <h1 class="text-center">Vediamo un po' a che punto state...<br>comuni mortali!</h1>
+      <h1 class="text-center">Vediamo un po' tutti i task assegnati <br>a voi...<br>comuni mortali!</h1>
     </div>
   </div>
 
   <div class="row">
     <div class="col-md-12">
       <ul class="list-unstyled">
-        <li *ngFor="let todo of todosConNomeUser" [ngClass]="[todo.completed ? 'bg-success' : 'bg-danger']">
+        <li class="mb-2 fs-3"  *ngFor="let todo of todosConNomeUser" [ngClass]="[todo.completed ? 'bg-success' : 'bg-danger']">
           <app-single-task [todo]="todo"></app-single-task>
         </li>
       </ul>

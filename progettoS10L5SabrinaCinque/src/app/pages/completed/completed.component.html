@@ -8,7 +8,7 @@
   <div class="row">
     <div class="col-md-12">
       <ul class="list-unstyled">
-        <li *ngFor="let todo of completedTodosConNomeUser" [ngClass]="[todo.completed ? 'bg-success' : 'bg-danger']">
+        <li class="mb-2 fs-3" *ngFor="let todo of completedTodosConNomeUser" [ngClass]="[todo.completed ? 'bg-success' : 'bg-danger']">
           <app-single-task [todo]="todo"></app-single-task>
         </li>
       </ul>

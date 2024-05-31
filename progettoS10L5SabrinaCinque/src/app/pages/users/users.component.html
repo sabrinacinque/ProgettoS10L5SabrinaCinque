@@ -1,14 +1,20 @@
 <div class="container">
-  <h1 class="text-center">Chi è stato il più performante questa settimana?<br>Scorpiamolo!</h1>
-  <div class="row row-cols-1 row-cols-md-3 g-4">
-    <div class="col" *ngFor="let user of usersWithTodos">
-      <div class="card text-center">
+  <div class="row my-5">
+    <div class="col d-flex flex-row justify-content-center align-items-center">
+      <img src="../../../assets/img/avatar3.png" alt="immagine death note" />
+      <h1 class="text-center">Si dice il peccato ma....<br>anche il peccatore!!<br>Vediamo uno per uno a che punto state...</h1>
+    </div>
+  </div>
+  <div class="row row-cols-1 row-cols-md-3 g-4 mt-5">
+    <div class="col mt-5 d-flex" *ngFor="let user of usersWithTodos">
+      <div class="card text-center mt-5 flex-fill bg-black text-white">
         <img [src]="user.image" class="card-img-top" alt="immagine avatar dell'user">
-        <div class="card-body">
+        <div class="card-body d-flex flex-column">
           <h2 class="card-title">{{ user.firstName }} {{ user.lastName }}</h2>
-          <ul class="list-unstyled">
-            <li *ngFor="let todo of user.todos" [ngClass]="[todo.completed ? 'bg-success' : 'bg-danger']">
-              <app-single-task [todo]="todo"></app-single-task>
+          <ul class="list-unstyled flex-grow-1 text-start">
+            <li class="mb-2 fs-3" *ngFor="let todo of user.todos" [ngClass]="[todo.completed ? 'bg-success' : 'bg-danger']">
+              <input type="checkbox" [(ngModel)]="todo.completed">
+              <strong>{{ todo.todo }}</strong>
             </li>
           </ul>
         </div>
